@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Solar Assessment | SunPath Solar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="text/javascript">
+  (function() {
+    var tf = document.createElement('script');
+    tf.type = 'text/javascript'; tf.async = true;
+    tf.src = ("https:" == document.location.protocol ? 'https' : 'http') +
+      '://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&use_tagged_consent=true&l=' +
+      new Date().getTime() + Math.random();
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s);
+  })();
+</script>
+<noscript><img src='https://api.trustedform.com/ns.gif' /></noscript>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a4a2e 0%,#0d6e44 40%,#1a3a5c 100%);min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem}
+.shell{width:100%;max-width:540px}
+.badge{background:rgba(255,255,255,0.15);color:#fff;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:99px;display:inline-flex;align-items:center;gap:6px;margin-bottom:1.25rem}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.25)}
+.card-head{background:linear-gradient(135deg,#064e2e,#0f7a45);padding:1.5rem 2rem;position:relative;overflow:hidden}
+.card-head::after{content:'';position:absolute;right:-30px;top:-30px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.06)}
+.head-step{font-size:11px;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+.head-title{font-size:18px;font-weight:700;color:#fff;line-height:1.35;position:relative;z-index:1}
+.prog-track{background:rgba(255,255,255,.2);height:4px;border-radius:99px;margin-top:1rem;overflow:hidden}
+.prog-fill{height:100%;background:#4ade80;border-radius:99px;transition:width .4s cubic-bezier(.4,0,.2,1)}
+.card-body{padding:1.75rem 2rem}
+.sub{font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:1.5rem}
+.alert{display:flex;align-items:flex-start;gap:10px;background:#fef3c7;border:1px solid #fbbf24;border-radius:12px;padding:10px 14px;font-size:12px;color:#92400e;font-weight:500;margin-bottom:1.25rem;line-height:1.5}
+.alert svg{flex-shrink:0;margin-top:1px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;border:1.5px solid #e5e7eb;border-radius:14px;padding:14px 16px;cursor:pointer;background:#fff;transition:all .15s;position:relative}
+.opt:hover{border-color:#0f7a45;background:#f0fdf4}
+.opt.sel{border-color:#0f7a45;background:#f0fdf4;box-shadow:0 0 0 3px rgba(15,122,69,.1)}
+.opt-ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#f3f4f6}
+.opt-ico.green{background:#dcfce7}
+.opt-ico.blue{background:#dbeafe}
+.opt-ico.amber{background:#fef3c7}
+.opt-ico.red{background:#fee2e2}
+.opt-text{flex:1}
+.opt-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:2px}
+.opt-sub{font-size:12px;color:#9ca3af}
+.chk{width:20px;height:20px;border-radius:50%;border:1.5px solid #d1d5db;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.opt.sel .chk{background:#0f7a45;border-color:#0f7a45}
+.chk-dot{width:7px;height:7px;border-radius:50%;background:#fff;display:none}
+.opt.sel .chk-dot{display:block}
+.inp-wrap{margin-bottom:12px}
+.inp-label{font-size:12px;font-weight:600;color:#374151;margin-bottom:6px;display:block;letter-spacing:.03em}
+.inp{width:100%;border:1.5px solid #e5e7eb;border-radius:12px;padding:12px 16px;font-family:'Inter',sans-serif;font-size:14px;color:#111827;background:#fff;outline:none;transition:border-color .15s}
+.inp:focus{border-color:#0f7a45;box-shadow:0 0 0 3px rgba(15,122,69,.1)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.err-msg{font-size:12px;color:#dc2626;margin-top:4px;display:none}
+.note{font-size:11px;color:#9ca3af;line-height:1.5;display:flex;align-items:flex-start;gap:6px;margin-top:8px}
+.consent-wrap{background:#f9fafb;border-radius:12px;padding:12px 14px;margin-top:12px;display:flex;align-items:flex-start;gap:10px}
+.consent-wrap label{font-size:11px;color:#6b7280;line-height:1.5}
+.slide{display:none}
+.slide.active{display:block}
+.success-wrap{text-align:center;padding:1rem 0}
+.succ-ico{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#064e2e,#0f7a45);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem}
+.succ-title{font-size:20px;font-weight:700;color:#111827;margin-bottom:.5rem}
+.succ-sub{font-size:14px;color:#6b7280;line-height:1.6}
+.card-foot{padding:1rem 2rem 1.75rem;background:#fff;border-top:1px solid #f3f4f6;display:flex;gap:10px}
+.btn-back{padding:13px 18px;background:#f3f4f6;border:none;border-radius:12px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#374151;cursor:pointer;transition:background .15s}
+.btn-back:hover{background:#e5e7eb}
+.btn-next{flex:1;padding:13px;background:linear-gradient(135deg,#064e2e,#0f7a45);border:none;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity .15s;letter-spacing:.01em}
+.btn-next:hover{opacity:.9}
+.trust-row{display:flex;justify-content:center;gap:24px;margin-top:1.25rem;flex-wrap:wrap}
+.trust-item{font-size:11px;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:6px;font-weight:500}
+.trust-check{width:14px;height:14px;border-radius:50%;background:rgba(74,222,128,.3);border:1px solid rgba(74,222,128,.5);display:flex;align-items:center;justify-content:center}
+.sel-err{font-size:12px;color:#dc2626;margin-top:8px;font-family:'Inter',sans-serif}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="badge"><span class="badge-dot"></span>Free solar savings estimate</div>
+  <div class="card">
+    <div class="card-head">
+      <div class="head-step" id="step-lbl">Step 1 of 10</div>
+      <div class="head-title" id="head-title">Do you own your home?</div>
+      <div class="prog-track"><div class="prog-fill" id="prog" style="width:10%"></div></div>
+    </div>
+    <div class="card-body">
+
+      <!-- S1: Own home -->
+      <div class="slide active" id="s1">
+        <div class="sub">Homeowners qualify for government incentives that can cover up to 30% of installation costs.</div>
+        <div class="opts">
+          <div class="opt sel" id="s1opt1" onclick="pick(this,'own_home','Yes','s1')">
+            <div class="opt-ico green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V16H9V21H4C3.45 21 3 20.55 3 20V10.5Z" fill="#16a34a"/></svg></div>
+            <div class="opt-text"><div class="opt-title">Yes, I own my home</div><div class="opt-sub">Primary decision maker</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+          <div class="opt" onclick="dq()">
+            <div class="opt-ico red"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" fill="#dc2626"/></svg></div>
+            <div class="opt-text"><div class="opt-title">No, I rent</div><div class="opt-sub">I don't own the property</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S2: Property type -->
+      <div class="slide" id="s2">
+        <div class="sub">Solar works best on single-family homes with a clear, unshaded roof.</div>
+        <div class="opts">
+          <div class="opt" onclick="pick(this,'property_type','Single Family Home','s2')">
+            <div class="opt-ico green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V16H9V21H4C3.45 21 3 20.55 3 20V10.5Z" fill="#16a34a"/></svg></div>
+            <div class="opt-text"><div class="opt-title">Single family home</div><div class="opt-sub">Standalone residential</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+          <div class="opt" onclick="pick(this,'property_type','Mobile / Manufactured Home','s2')">
+            <div class="opt-ico amber"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="12" rx="2" stroke="#d97706" stroke-width="2" fill="none"/><path d="M6 8V6a2 2 0 012-2h8a2 2 0 012 2v2" stroke="#d97706" stroke-width="2"/><circle cx="7" cy="20" r="2" fill="#d97706"/><circle cx="17" cy="20" r="2" fill="#d97706"/></svg></div>
+            <div class="opt-text"><div class="opt-title">Mobile / manufactured</div><div class="opt-sub">May not be eligible</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+          <div class="opt" onclick="pick(this,'property_type','Commercial / Multi-Family','s2')">
+            <div class="opt-ico blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21V7l9-4 9 4v14H3z" stroke="#2563eb" stroke-width="2" fill="none"/><rect x="9" y="14" width="6" height="7" fill="#2563eb" opacity=".3"/></svg></div>
+            <div class="opt-text"><div class="opt-title">Commercial / multi-family</div><div class="opt-sub">Commercial or investment property</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+          <div class="opt" onclick="pick(this,'property_type','Condo / Townhome','s2')">
+            <div class="opt-ico red"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21V7l4-4h10l4 4v14H3z" stroke="#dc2626" stroke-width="2" fill="none"/></svg></div>
+            <div class="opt-text"><div class="opt-title">Condo / townhome</div><div class="opt-sub">Shared building — not eligible</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S3: Roof shade -->
+      <div class="slide" id="s3">
+        <div class="sub">Roof shading from trees or buildings significantly affects solar output and savings.</div>
+        <div class="opts">
+          <div class="opt" onclick="pick(this,'roof_shade','No shade (full sun)','s3')">
+            <div class="opt-ico amber"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="#f59e0b"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="opt-text"><div class="opt-title">No shade — full sun</div><div class="opt-sub">Maximum solar output</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+          <div class="opt" onclick="pick(this,'roof_shade','Some shade','s3')">
+            <div class="opt-ico green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="#16a34a" opacity=".5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="opt-text"><div class="opt-title">Some shade</div><div class="opt-sub">Partial coverage during day</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+          <div class="opt" onclick="pick(this,'roof_shade','Heavily shaded','s3')">
+            <div class="opt-ico red"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 8C8 10 5.9 16.17 3.82 19.99L5.71 21l1-2 1 2 1-2 1 2 1-2 1 2 .71-1.42C16.27 18.18 19 16 19 12" stroke="#dc2626" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="opt-text"><div class="opt-title">Heavily shaded</div><div class="opt-sub">Trees or buildings block sun</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S4: Monthly bill -->
+      <div class="slide" id="s4">
+        <div class="sub">Your average monthly electric bill helps us estimate your solar savings potential.</div>
+        <div class="opts">
+          <div class="opt" onclick="pick(this,'monthly_bill','Under $100','s4')">
+            <div class="opt-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" fill="#9ca3af"/></svg></div>
+            <div class="opt-text"><div class="opt-title">Under $100 / mo</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+          <div class="opt" onclick="pick(this,'monthly_bill','$100–$150','s4')">
+            <div class="opt-ico blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" fill="#2563eb"/></svg></div>
+            <div class="opt-text"><div class="opt-title">$100 – $150 / mo</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+          <div class="opt" onclick="pick(this,'monthly_bill','$150–$250','s4')">
+            <div class="opt-ico green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" fill="#16a34a"/></svg></div>
+            <div class="opt-text"><div class="opt-title">$150 – $250 / mo</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+          <div class="opt" onclick="pick(this,'monthly_bill','$250+','s4')">
+            <div class="opt-ico amber"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" fill="#d97706"/></svg></div>
+            <div class="opt-text"><div class="opt-title">$250+ / mo</div><div class="opt-sub">Excellent solar candidate!</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S5: Credit score -->
+      <div class="slide" id="s5">
+        <div class="alert"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="#d97706"/></svg>A minimum 640 credit score is required to qualify for $0-down solar financing.</div>
+        <div class="opts">
+          <div class="opt" onclick="pick(this,'credit_score','Under 640','s5')">
+            <div class="opt-ico red"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" fill="#dc2626"/></svg></div>
+            <div class="opt-text"><div class="opt-title">Under 640</div><div class="opt-sub">Below the minimum threshold</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+          <div class="opt" onclick="pick(this,'credit_score','640–699','s5')">
+            <div class="opt-ico amber"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" fill="#d97706"/></svg></div>
+            <div class="opt-text"><div class="opt-title">640 – 699</div><div class="opt-sub">Qualifies for most programs</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+          <div class="opt" onclick="pick(this,'credit_score','700+','s5')">
+            <div class="opt-ico green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" fill="#16a34a"/></svg></div>
+            <div class="opt-text"><div class="opt-title">700 or above</div><div class="opt-sub">Best rates and $0-down options</div></div>
+            <div class="chk"><div class="chk-dot"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S6: Utility -->
+      <div class="slide" id="s6">
+        <div class="sub">Your utility provider determines available rebates, net metering credits, and rates.</div>
+        <div class="inp-wrap">
+          <label class="inp-label">Electric utility provider</label>
+          <input class="inp" id="utility" type="text" placeholder="e.g. PG&E, Xcel Energy, Duke Energy..." />
+          <div class="err-msg" id="utility-err">Please enter your electric utility provider.</div>
+        </div>
+      </div>
+
+      <!-- S7: Name -->
+      <div class="slide" id="s7">
+        <div class="sub">We'll use your name to personalize your solar proposal and savings estimate.</div>
+        <div class="row2">
+          <div class="inp-wrap">
+            <label class="inp-label">First name</label>
+            <input class="inp" id="first_name" type="text" placeholder="Jane" />
+          </div>
+          <div class="inp-wrap">
+            <label class="inp-label">Last name</label>
+            <input class="inp" id="last_name" type="text" placeholder="Smith" />
+          </div>
+        </div>
+        <div class="err-msg" id="name-err">Please enter your first and last name.</div>
+      </div>
+
+      <!-- S8: Address -->
+      <div class="slide" id="s8">
+        <div class="sub">We use satellite imaging to design the most efficient panel layout for your exact roof.</div>
+        <div class="inp-wrap">
+          <label class="inp-label">Street address</label>
+          <input class="inp" id="address" type="text" placeholder="123 Main Street" autocomplete="off" />
+        </div>
+        <div class="row2">
+          <div class="inp-wrap">
+            <label class="inp-label">City</label>
+            <input class="inp" id="city" type="text" placeholder="City" />
+          </div>
+          <div class="inp-wrap">
+            <label class="inp-label">Zip code</label>
+            <input class="inp" id="zip" type="text" placeholder="00000" />
+          </div>
+        </div>
+        <div class="err-msg" id="addr-err">Please fill in all address fields.</div>
+        <div class="note">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="margin-top:1px;flex-shrink:0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#9ca3af"/></svg>
+          Used for roof analysis only — never shared or sold.
+        </div>
+      </div>
+
+      <!-- S9: Email -->
+      <div class="slide" id="s9">
+        <div class="sub">We'll send your custom solar design, estimated savings, and financing options here.</div>
+        <div class="inp-wrap">
+          <label class="inp-label">Email address</label>
+          <input class="inp" id="email" type="email" placeholder="jane@example.com" />
+          <div class="err-msg" id="email-err">Please enter a valid email address.</div>
+        </div>
+      </div>
+
+      <!-- S10: Phone -->
+      <div class="slide" id="s10">
+        <div class="sub">A solar advisor will call you when your custom roof design is ready — usually within 24 hours.</div>
+        <div class="inp-wrap">
+          <label class="inp-label">Phone number</label>
+          <input class="inp" id="phone" type="tel" placeholder="(555) 000-0000" />
+          <div class="err-msg" id="phone-err">Please enter a valid 10-digit phone number.</div>
+        </div>
+        <div class="consent-wrap">
+          <input type="checkbox" id="consent" checked style="accent-color:#0f7a45;margin-top:2px;flex-shrink:0" />
+          <label for="consent">I agree to receive calls and texts from <strong>SunPath Solar</strong> about my quote request, appointment confirmations, and follow-up communications. Message frequency varies. Consent is optional and not required to obtain a quote. Msg &amp; data rates may apply. Reply STOP to opt out.</label>
+        </div>
+      </div>
+
+      <!-- S11: Submitting -->
+      <div class="slide" id="s11">
+        <div class="success-wrap">
+          <div class="succ-ico"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="succ-title">Submitting your assessment...</div>
+          <div class="succ-sub">Please wait while we send your information to a solar advisor.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div id="footer" class="card-foot">
+      <button class="btn-back" id="back-btn" onclick="goBack()">&#8592; Back</button>
+      <button class="btn-next" id="next-btn" onclick="handleNext()">
+        <span id="next-label">Continue</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="trust-row">
+    <div class="trust-item"><div class="trust-check"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/></svg></div>No obligation, ever</div>
+    <div class="trust-item"><div class="trust-check"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/></svg></div>Under 2 minutes</div>
+    <div class="trust-item"><div class="trust-check"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/></svg></div>100% free</div>
+  </div>
+</div>
+
+<!-- Google Places Autocomplete (replace YOUR_API_KEY) -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initAutocomplete" async defer></script>
+
+<script>
+// ─── CONFIG — update these ───────────────────────────────────────────────────
+const WEBHOOK_URL = 'YOUR_WEBHOOK_URL_HERE';
+const DQ_URL      = 'https://yoursite.com/not-eligible';
+const THANK_URL   = 'https://yoursite.com/thank-you';
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Capture URL params for attribution
+function getParam(n){ return new URLSearchParams(window.location.search).get(n)||''; }
+const GCLID        = getParam('gclid');
+const UTM_SOURCE   = getParam('utm_source');
+const UTM_MEDIUM   = getParam('utm_medium');
+const UTM_CAMPAIGN = getParam('utm_campaign');
+const UTM_CONTENT  = getParam('utm_content');
+const UTM_TERM     = getParam('utm_term');
+const PAGE_URL     = window.location.href;
+const _now         = new Date();
+const LEAD_DATE    = _now.toISOString().split('T')[0];
+const LEAD_TIME    = _now.toTimeString().slice(0,5);
+
+const TOTAL = 10;
+
+const TITLES = {
+  1:'Do you own your home?',
+  2:'What type of property do you own?',
+  3:'How much shade does your roof get?',
+  4:'What\'s your average monthly electric bill?',
+  5:'What\'s your credit score range?',
+  6:'Who is your electric utility provider?',
+  7:'What\'s your name?',
+  8:'What\'s your home address?',
+  9:'Where should we send your solar design?',
+  10:'Best number to reach you?'
+};
+
+const DQ_PROPS = {
+  property_type: ['Condo / Townhome','Mobile / Manufactured Home'],
+  credit_score:  ['Under 640'],
+  monthly_bill:  ['Under $100']
+};
+
+const MANUAL_SLIDES = [6,7,8,9,10];
+const data = { own_home:'Yes' };
+let current = 1;
+
+// Google Places autocomplete init
+function initAutocomplete(){
+  const input = document.getElementById('address');
+  if(!input || typeof google === 'undefined') return;
+  const ac = new google.maps.places.Autocomplete(input,{
+    types:['address'], componentRestrictions:{country:'us'}
+  });
+  ac.addListener('place_changed', function(){
+    const place = ac.getPlace();
+    if(!place.address_components) return;
+    let sn='',rt='',city='',state='',zip='';
+    place.address_components.forEach(c=>{
+      if(c.types.includes('street_number'))               sn    = c.long_name;
+      if(c.types.includes('route'))                       rt    = c.long_name;
+      if(c.types.includes('locality'))                    city  = c.long_name;
+      if(c.types.includes('administrative_area_level_1')) state = c.short_name;
+      if(c.types.includes('postal_code'))                 zip   = c.long_name;
+    });
+    document.getElementById('address').value = (sn+' '+rt).trim();
+    document.getElementById('city').value    = city;
+    document.getElementById('zip').value     = zip;
+    data.address = document.getElementById('address').value;
+    data.city = city; data.state = state; data.zip = zip;
+  });
+}
+
+function goTo(n){
+  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  current = n;
+  const pct = Math.round((Math.min(n,TOTAL)/TOTAL)*100);
+  document.getElementById('prog').style.width = pct+'%';
+  document.getElementById('step-lbl').textContent = n<=TOTAL ? 'Step '+n+' of '+TOTAL : 'Submitting\u2026';
+  document.getElementById('head-title').textContent = TITLES[n]||'';
+  const footer  = document.getElementById('footer');
+  const backBtn = document.getElementById('back-btn');
+  const nextLbl = document.getElementById('next-label');
+  footer.style.display  = (n===11) ? 'none' : 'flex';
+  backBtn.style.display = (n>1 && n<=TOTAL) ? 'block' : 'none';
+  nextLbl.textContent   = (n===TOTAL) ? 'Get My Free Quote' : 'Continue';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goBack(){ if(current>1) goTo(current-1); }
+
+function dq(){
+  setTimeout(()=>{ window.location.href = DQ_URL; }, 350);
+}
+
+function pick(el, key, val, slideId){
+  document.querySelectorAll('#'+slideId+' .opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  data[key] = val;
+  if(!MANUAL_SLIDES.includes(current)) setTimeout(()=>handleNext(), 300);
+}
+
+function showErr(id){ document.getElementById(id).style.display='block'; }
+function hideErr(id){ document.getElementById(id).style.display='none'; }
+
+function selErr(slideId){
+  let ex = document.querySelector('#'+slideId+' .sel-err');
+  if(!ex){
+    ex = document.createElement('div');
+    ex.className = 'sel-err';
+    ex.textContent = 'Please make a selection to continue.';
+    document.getElementById(slideId).appendChild(ex);
+  }
+}
+function clearSelErr(slideId){
+  const ex = document.querySelector('#'+slideId+' .sel-err');
+  if(ex) ex.remove();
+}
+
+function handleNext(){
+  switch(current){
+    case 1:
+      if(!data.own_home){ selErr('s1'); return; }
+      clearSelErr('s1');
+      if(data.own_home==='No'){ dq(); return; }
+      goTo(2); break;
+    case 2:
+      if(!data.property_type){ selErr('s2'); return; }
+      clearSelErr('s2');
+      if(DQ_PROPS.property_type.includes(data.property_type)){ dq(); return; }
+      goTo(3); break;
+    case 3:
+      if(!data.roof_shade){ selErr('s3'); return; }
+      clearSelErr('s3');
+      goTo(4); break;
+    case 4:
+      if(!data.monthly_bill){ selErr('s4'); return; }
+      clearSelErr('s4');
+      if(DQ_PROPS.monthly_bill.includes(data.monthly_bill)){ dq(); return; }
+      goTo(5); break;
+    case 5:
+      if(!data.credit_score){ selErr('s5'); return; }
+      clearSelErr('s5');
+      if(DQ_PROPS.credit_score.includes(data.credit_score)){ dq(); return; }
+      goTo(6); break;
+    case 6: {
+      const v = document.getElementById('utility').value.trim();
+      if(!v){ showErr('utility-err'); return; }
+      hideErr('utility-err');
+      data.utility = v;
+      goTo(7); break;
+    }
+    case 7: {
+      const fn = document.getElementById('first_name').value.trim();
+      const ln = document.getElementById('last_name').value.trim();
+      if(!fn||!ln){ showErr('name-err'); return; }
+      hideErr('name-err');
+      data.first_name = fn; data.last_name = ln;
+      goTo(8); break;
+    }
+    case 8: {
+      const a = document.getElementById('address').value.trim();
+      const c = document.getElementById('city').value.trim();
+      const z = document.getElementById('zip').value.trim();
+      if(!a||!c||!z){ showErr('addr-err'); return; }
+      hideErr('addr-err');
+      data.address = a; data.city = c; data.zip = z;
+      goTo(9); break;
+    }
+    case 9: {
+      const em = document.getElementById('email').value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ showErr('email-err'); return; }
+      hideErr('email-err');
+      data.email = em;
+      goTo(10); break;
+    }
+    case 10: {
+      const ph = document.getElementById('phone').value.trim();
+      if(ph.replace(/\D/g,'').length < 10){ showErr('phone-err'); return; }
+      hideErr('phone-err');
+      data.phone = ph;
+      data.sms_consent = document.getElementById('consent').checked;
+      goTo(11);
+
+      const tfField = document.querySelector('input[name="xxTrustedFormCertUrl"]');
+      const tfCert  = tfField ? tfField.value : '';
+
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          first_name:    data.first_name    || '',
+          last_name:     data.last_name     || '',
+          email:         data.email         || '',
+          phone:         data.phone         || '',
+          address1:      data.address       || '',
+          city:          data.city          || '',
+          state:         data.state         || '',
+          postal_code:   data.zip           || '',
+          own_home:      data.own_home      || '',
+          property_type: data.property_type || '',
+          roof_shade:    data.roof_shade    || '',
+          monthly_bill:  data.monthly_bill  || '',
+          credit_score:  data.credit_score  || '',
+          utility:       data.utility       || '',
+          sms_consent:   data.sms_consent,
+          trusted_form_cert_url: tfCert,
+          gclid:         GCLID,
+          utm_source:    UTM_SOURCE,
+          utm_medium:    UTM_MEDIUM,
+          utm_campaign:  UTM_CAMPAIGN,
+          utm_content:   UTM_CONTENT,
+          utm_term:      UTM_TERM,
+          page_url:      PAGE_URL,
+          lead_date:     LEAD_DATE,
+          lead_time:     LEAD_TIME
+        })
+      })
+      .then(()  => { window.location.href = THANK_URL; })
+      .catch(()  => { window.location.href = THANK_URL; });
+      break;
+    }
+  }
+}
+
+// Enter key support
+document.addEventListener('keydown', e => {
+  if(e.key==='Enter'){ e.preventDefault(); handleNext(); }
+});
+
+// Init
+goTo(1);
+</script>
+</body>
+</html>
